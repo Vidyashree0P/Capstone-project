@@ -23,7 +23,7 @@ In the next phase, the focus will be on integrating the activation routing logic
 
 The project focuses on designing a near-memory systolic accelerator optimized for energy-efficient edge-AI inference. By combining weight-stationary dataflow with on-chip INT8 weight compression and localized SRAM banks, the design significantly reduces memory bandwidth and power consumption. The accelerator is fully synthesizable and scalable, making it suitable for ASIC feasibility studies and FPGA prototyping.
 
-## 3.Simulation
+## 3.Simulation/Schematic
 <img width="932" height="281" alt="image" src="https://github.com/user-attachments/assets/244d9cfb-751c-4b5a-a628-aa23828eb0e5" />
 
 
