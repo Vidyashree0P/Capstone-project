@@ -1,5 +1,8 @@
 # Capstone Project
 
+## Energy-Efficient Near-Memory Systolic Accelerator with On-Chip Weight Compression for Edge AI Applications
+
+
 ----------------------------------------------------------------------------------------------------------------
 
 <details>
