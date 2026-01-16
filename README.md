@@ -52,6 +52,8 @@ Provide analysis or interpretation of results:
 
 ### Improvements / Modifications Needed
 •	Add clock-gating for inactive PEs to reduce dynamic power.
+
+
 •	Extend simulations to cover corner cases and stress conditions.
 
 
