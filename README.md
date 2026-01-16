@@ -37,11 +37,17 @@ Provide analysis or interpretation of results:
 
 ### Key Findings:
 •	SRAM-integrated weight loading works correctly with systolic timing.
+
+
 •	Weight-stationary dataflow minimizes repeated SRAM accesses.
 
 ### Insights / Learnings
 •	Precise control of read-enable and load signals is critical for systolic correctness.
+
+
 •	Early SRAM modelling simplifies later synthesis and integration.
+
+
 •	Waveform-level debugging is essential for validating systolic architectures.
 
 ### Improvements / Modifications Needed
