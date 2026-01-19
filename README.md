@@ -59,6 +59,7 @@ Provide analysis or interpretation of results:
 
 •	Extend simulations to cover corner cases and stress conditions.
 
+</details>
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -87,7 +88,9 @@ The project focuses on designing a near-memory systolic accelerator optimized fo
 
 <img width="932" height="495" alt="image" src="https://github.com/user-attachments/assets/f18a990d-8a8b-4a08-8e86-fc891bf6c09f" />
 
+
 <img width="932" height="495" alt="image" src="https://github.com/user-attachments/assets/708ab595-1c14-4a75-a013-c12a45ce8c9c" />
+
 
 <img width="930" height="387" alt="image" src="https://github.com/user-attachments/assets/97c6ef89-3294-4e3b-83b1-ac4bccb9d679" />
 
