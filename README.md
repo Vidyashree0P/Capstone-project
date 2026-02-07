@@ -213,4 +213,25 @@ Provide analysis or interpretation of results:
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+<details>
+ <summary><b>
+Week 4:</b> The successful completion of the Synthesis, PPA & Documentation
+* Synthesize with Cadence Genus, Generate area/timing/power reports</summary>
 
+## Current Progress
+
+Synthesizing a design with Cadence Genus involves a systematic progression from high-level RTL to a technology-mapped gate-level netlist, with each stage offering a deeper look into the physical feasibility of your hardware. Once you have loaded your technology libraries and RTL, the elaboration and syn_generic phases create a basic structure, but the true progress is measured after syn_map and syn_opt. By generating area, timing, and power reports at this stage, you gain a multi-dimensional view of your design's health: the timing report identifies critical paths and "slack" to ensure the logic functions at the required clock frequency, the area report tallies cell counts and total square microns to ensure the design fits the physical footprint, and the power report estimates the thermal and battery impact of both switching activity and leakage. Successfully synthesizing the design means balancing these three pillars—often referred to as PPA (Power, Performance, and Area)—to reach a point where timing is "closed" (zero or positive slack).
+
+
+## Check_design
+
+![WhatsApp Image 2026-02-07 at 3 27 07 PM](https://github.com/user-attachments/assets/b306c224-3c5e-43ad-af6f-e3f1e0fde26f)
+
+
+## Synthesis
+
+<img width="1280" height="702" alt="Screenshot from 2026-02-07 14-58-58" src="https://github.com/user-attachments/assets/ede7f152-1c6d-4860-807e-7f2949f6e148" />
+
+</details>
+
+---------------------------------------------------------------------------------------------
