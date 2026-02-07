@@ -27,6 +27,7 @@ In the next phase, the focus will be on integrating the activation routing logic
 The project focuses on designing a near-memory systolic accelerator optimized for energy-efficient edge-AI inference. By combining weight-stationary dataflow with on-chip INT8 weight compression and localized SRAM banks, the design significantly reduces memory bandwidth and power consumption. The accelerator is fully synthesizable and scalable, making it suitable for ASIC feasibility studies and FPGA prototyping.
 
 ## 3.Simulation/Schematic
+
 <img width="932" height="281" alt="image" src="https://github.com/user-attachments/assets/244d9cfb-751c-4b5a-a628-aa23828eb0e5" />
 
 
@@ -143,14 +144,14 @@ The finite state machine starts in the IDLE state, where it waits for a start si
 <img width="468" height="850" alt="image" src="https://github.com/user-attachments/assets/8f9beaf3-8df9-4de9-b27d-d296c0e9dd9c" />
 
 
-## Challenges
+### Challenges
 
 •	Timing Issue:
 Maintaining proper timing between consecutive FSM states is challenging, as delays in data fetch or execution can lead to setup and hold time violations. Ensuring that register updates and state transitions occur within a single clock cycle requires careful timing analysis and synchronization.
 •	Clock-Gating:
 Implementing clock gating is challenging because improper gating can cause missed state transitions or incorrect data capture. The clock must be gated in a controlled manner to reduce power consumption while still guaranteeing that all critical FSM operations remain correctly synchronized with the system clock.
 
-## Next Steps
+### Next Steps
 
 •	Perform synthesis of the design using Cadence Genus to obtain a gate-level implementation.
 •	Generate and analyze area, timing, and power (PPA) reports to evaluate design efficiency.
@@ -159,6 +160,7 @@ Implementing clock gating is challenging because improper gating can cause misse
 ## Python Reference Model:
 
 <img width="910" height="398" alt="image" src="https://github.com/user-attachments/assets/1036432a-67ec-4315-a40f-38f271314596" />
+
 
 A Python-based golden reference model was developed to closely mirror the RTL datapath and provide a hardware-faithful validation platform. The model is entirely integer-based, implementing INT8 weight quantization with power-of-two layer scaling, INT32 intermediate computation, and INT64 accumulation, while deliberately avoiding floating-point arithmetic. Functional testing was carried out using real 4×4 integer matrices for activations and weights. For each test case, the model produced both a full-precision reference result and a quantized systolic result using INT8 weights, and these outputs were compared to measure numerical deviation across fixed layer scales of 1, 2, 4, 8, and 16 to study precision–efficiency trade-offs.
 The results show that for a layer scale of 1, the quantized systolic output exactly matches the reference, confirming correct datapath functionality and FSM operation. As the layer scale increases, quantization introduces bounded and predictable error, clearly illustrating the expected accuracy versus memory-efficiency trade-off in near-memory INT8 architectures. These observations validate the architectural decision to store weights in INT8 format with near-memory expansion to INT32, demonstrating that reduced-precision memory can still support correct systolic computation while significantly reducing memory bandwidth. Overall, the Python model successfully completes the Week-3 system bring-up objective by enabling end-to-end functional verification of the proposed architecture.
@@ -181,7 +183,7 @@ The project focuses on designing a near-memory systolic accelerator optimized fo
 ## 4.Analysis
 
 Provide analysis or interpretation of results:
-## Key Findings
+### Key Findings
 
 •	The FSM provides a clear and deterministic flow from data fetching to execution and completion.
 
@@ -189,7 +191,7 @@ Provide analysis or interpretation of results:
 
 •	Conditional transitions based on address and count guarantee correct execution timing.
 
-## Insights / Learnings
+### Insights / Learnings
 
 •	Proper state separation simplifies complex control logic in digital systems.
 
@@ -197,7 +199,7 @@ Provide analysis or interpretation of results:
 
 •	Precise transition conditions are essential for reliable hardware behavior.
 
-## Improvements / Modifications Needed
+### Improvements / Modifications Needed
 
 •	Parameterize fixed limits to improve flexibility and scalability.
 
@@ -208,3 +210,5 @@ Provide analysis or interpretation of results:
 </details>
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
