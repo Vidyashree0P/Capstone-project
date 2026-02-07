@@ -215,8 +215,7 @@ Provide analysis or interpretation of results:
 
 <details>
  <summary><b>
-Week 4:</b> The successful completion of the Synthesis, PPA & Documentation
-* Synthesize with Cadence Genus, Generate area/timing/power reports</summary>
+Week 4:</b> The successful completion of the Synthesis, PPA & Documentation - Synthesize with Cadence Genus, Generate area/timing/power reports</summary>
 
 ## Current Progress
 
