@@ -126,7 +126,85 @@ Provide analysis or interpretation of results:
 
 •	Control Logic: Refine the FSM state transitions to better handle corner cases in partial sum output.
 
+</details>
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+<details>
+ <summary><b>
+Week 3:</b> The successful completion of the finite state machine starts in the IDLE state, where it waits for a start signal.</summary>
+
+## 1.Updates
+## Current Progress
+
+The finite state machine starts in the IDLE state, where it waits for a start signal. Upon receiving the start signal, the FSM transitions to the Fetch-addr state. In the Fetch-addr state, the address is prepared and the FSM immediately moves to the Fetch data state. During the Fetch data state, the weight data is loaded into weig_dat with a value of w32, and the activation register act_reg is updated with act_out. If the address value equals 4'd15, the FSM transitions to the Execute state; otherwise, it loops back to the Fetch-addr state to continue fetching data. In the Execute state, the computation is performed, and once execution is completed and the count reaches 7, the FSM transitions to the Capture state. The Capture state handles the capture of the execution results, after which the FSM moves to the Done state. Finally, in the Done state, the FSM returns to the IDLE state, where it waits for the next start signal.
 
 
+<img width="468" height="850" alt="image" src="https://github.com/user-attachments/assets/8f9beaf3-8df9-4de9-b27d-d296c0e9dd9c" />
+
+
+## Challenges
+
+•	Timing Issue:
+Maintaining proper timing between consecutive FSM states is challenging, as delays in data fetch or execution can lead to setup and hold time violations. Ensuring that register updates and state transitions occur within a single clock cycle requires careful timing analysis and synchronization.
+•	Clock-Gating:
+Implementing clock gating is challenging because improper gating can cause missed state transitions or incorrect data capture. The clock must be gated in a controlled manner to reduce power consumption while still guaranteeing that all critical FSM operations remain correctly synchronized with the system clock.
+
+## Next Steps
+
+•	Perform synthesis of the design using Cadence Genus to obtain a gate-level implementation.
+•	Generate and analyze area, timing, and power (PPA) reports to evaluate design efficiency.
+•	Prepare the final project report, presentation slides, detailed documentation, and benchmarking results for performance comparison and evaluation.
+
+## Python Reference Model:
+
+<img width="910" height="398" alt="image" src="https://github.com/user-attachments/assets/1036432a-67ec-4315-a40f-38f271314596" />
+
+A Python-based golden reference model was developed to closely mirror the RTL datapath and provide a hardware-faithful validation platform. The model is entirely integer-based, implementing INT8 weight quantization with power-of-two layer scaling, INT32 intermediate computation, and INT64 accumulation, while deliberately avoiding floating-point arithmetic. Functional testing was carried out using real 4×4 integer matrices for activations and weights. For each test case, the model produced both a full-precision reference result and a quantized systolic result using INT8 weights, and these outputs were compared to measure numerical deviation across fixed layer scales of 1, 2, 4, 8, and 16 to study precision–efficiency trade-offs.
+The results show that for a layer scale of 1, the quantized systolic output exactly matches the reference, confirming correct datapath functionality and FSM operation. As the layer scale increases, quantization introduces bounded and predictable error, clearly illustrating the expected accuracy versus memory-efficiency trade-off in near-memory INT8 architectures. These observations validate the architectural decision to store weights in INT8 format with near-memory expansion to INT32, demonstrating that reduced-precision memory can still support correct systolic computation while significantly reducing memory bandwidth. Overall, the Python model successfully completes the Week-3 system bring-up objective by enabling end-to-end functional verification of the proposed architecture.
+
+## 2.Project Idea: 
+
+The project focuses on designing a near-memory systolic accelerator optimized for energy-efficient edge-AI inference. By combining weight-stationary dataflow with on-chip INT8 weight compression and localized SRAM banks, the design significantly reduces memory bandwidth and power consumption. The accelerator is fully synthesizable and scalable, making it suitable for ASIC feasibility studies and FPGA prototyping.
+
+## 3.Schematic/Simulations
+
+
+<img width="932" height="495" alt="image" src="https://github.com/user-attachments/assets/20a19a1e-7c84-410a-aae5-d782eb50d7dd" />
+
+
+<img width="932" height="495" alt="image" src="https://github.com/user-attachments/assets/fb8d491d-ee0c-4470-8b18-e969fff5d21e" />
+
+
+<img width="930" height="387" alt="image" src="https://github.com/user-attachments/assets/3d79f4cf-2ca0-4238-afd8-780a8b77d328" />
+
+## 4.Analysis
+
+Provide analysis or interpretation of results:
+## Key Findings
+
+•	The FSM provides a clear and deterministic flow from data fetching to execution and completion.
+
+•	Each state has a dedicated function, ensuring orderly sequencing and easy control.
+
+•	Conditional transitions based on address and count guarantee correct execution timing.
+
+## Insights / Learnings
+
+•	Proper state separation simplifies complex control logic in digital systems.
+
+•	FSM looping efficiently handles repeated data access operations.
+
+•	Precise transition conditions are essential for reliable hardware behavior.
+
+## Improvements / Modifications Needed
+
+•	Parameterize fixed limits to improve flexibility and scalability.
+
+•	Add error-handling or synchronization mechanisms for robustness.
+
+•	Optimize performance by overlapping or pipelining operations.
+
+</details>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
