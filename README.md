@@ -148,6 +148,8 @@ The finite state machine starts in the IDLE state, where it waits for a start si
 
 •	Timing Issue:
 Maintaining proper timing between consecutive FSM states is challenging, as delays in data fetch or execution can lead to setup and hold time violations. Ensuring that register updates and state transitions occur within a single clock cycle requires careful timing analysis and synchronization.
+
+
 •	Clock-Gating:
 Implementing clock gating is challenging because improper gating can cause missed state transitions or incorrect data capture. The clock must be gated in a controlled manner to reduce power consumption while still guaranteeing that all critical FSM operations remain correctly synchronized with the system clock.
 
