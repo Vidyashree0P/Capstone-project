@@ -29,8 +29,6 @@ SUMMARY
     User Name: vlsi_S34
     Printed on: Wednesday, Feb 4, 2026 01:46:32 PM IST
     Working Directory: /home/vlsi_S34/capstone/formal_verification/tcl
-
-
 ==============================================================
 SUMMARY
 ==============================================================
